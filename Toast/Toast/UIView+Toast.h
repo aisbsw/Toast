@@ -257,6 +257,11 @@ extern const NSString * CSToastPositionBottom;
 @property (assign, nonatomic) NSInteger messageNumberOfLines;
 
 /**
+ The technique to use for wrapping and truncating the label’s text. The default is NSLineBreakByTruncatingTail.
+ */
+@property (assign, nonatomic) NSLineBreakMode messageLineBreakMode;
+
+/**
  Enable or disable a shadow on the toast view. Default is `NO`.
  */
 @property (assign, nonatomic) BOOL displayShadow;
