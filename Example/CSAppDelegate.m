@@ -1,8 +1,8 @@
 //
-//  CSAppDelegate.h
+//  CSAppDelegate.m
 //  Toast
 //
-//  Copyright (c) 2011-2015 Charles Scalesse.
+//  Copyright (c) 2011-2016 Charles Scalesse.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files (the
@@ -23,12 +23,21 @@
 //  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 //  SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import <UIKit/UIKit.h>
+#import "CSAppDelegate.h"
+#import "CSViewController.h"
 
-@class CSViewController;
+@implementation CSAppDelegate
 
-@interface CSAppDelegate : NSObject <UIApplicationDelegate>
-
-@property (nonatomic, retain) UIWindow *window;
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    CSViewController *viewController = [[CSViewController alloc] initWithStyle:UITableViewStylePlain];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    self.window.rootViewController = navigationController;
+    [self.window makeKeyAndVisible];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor orangeColor]];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    
+    return YES;
+}
 
 @end
